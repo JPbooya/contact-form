@@ -26,17 +26,33 @@
            <label for="liname">Linkedln URL</label>
            <input type="text" id="liname" name="liname">
 
-           <label for="jname">Job Title</label>
-           <input type="text" id="jname" name="jname">
-
            <label for="ename">Email Address</label>
-           <input type="text" id="ename" name="ename">
+           <input type="email" id="ename" name="ename">
 
-          <select id="meet" name="meet">How did we meet?>
+           <label for="oname">Other (please specify)</label>
+           <input type="text" id="oname" name="oname">
+
+           <label for="meet">How did we meet?</label>
+           <select id="meet" name="meet">
             <option value="none">Please Select</option>
             <option value="group-meets">Group Meets</option>
             <option value="linkedln meet">Linkedln</option>
-          </select>           
+           </select>
+           
+           <label for="message">Message</label>
+           <textarea rows="8" id="message" name="messsage"></textarea>
+
+           <label for="mailing-list"><input type="checkbox"
+            id="mailing-list">Please add me to your mailing list</label>
+           
+            <label>Choose an email format:</label>
+            <input type="radio" id="html" name="format" value="html">
+            <label for="html">HTML</label>
+            <input type="radio" id="text" name="format" value="text">
+            <label for="text">Text</label>
+
+            <button type="submit" id="order-button">Submit</button>
+
       </form>
     </main>
   </body>
