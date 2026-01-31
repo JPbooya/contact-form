@@ -11,47 +11,73 @@
   <main>
   <h1>Contact Form</h1>
         <form id="contact-form" action="#" method="get">
+
+          <div>
            <label for="fname">First Name</label>
            <input type="text" id="fname" name="fname">
+          </div>
 
+          <div>
            <label for="lname">Last Name</label>
            <input type="text" id="lname" name="lname">
+          </div>
 
+          <div>
            <label for="jname">Job Title</label>
            <input type="text" id="jname" name="jname">
+          </div>
 
+          <div>
            <label for="cname">Company</label>
            <input type="text" id="cname" name="cname">
+          </div>
 
+          <div>
            <label for="liname">Linkedln URL</label>
            <input type="text" id="liname" name="liname">
+          </div>
 
+          <div>
            <label for="ename">Email Address</label>
            <input type="email" id="ename" name="ename">
+          </div>
 
-           <label for="oname">Other (please specify)</label>
-           <input type="text" id="oname" name="oname">
-
+          <div>
            <label for="meet">How did we meet?</label>
            <select id="meet" name="meet">
             <option value="none">Please Select</option>
             <option value="group-meets">Group Meets</option>
             <option value="linkedln meet">Linkedln</option>
            </select>
+          </div>
+
+          <div>
+           <label for="oname">Other (please specify)</label>
+           <input type="text" id="oname" name="oname">
+          </div>
            
+          <div class="full-width">
            <label for="message">Message</label>
            <textarea rows="8" id="message" name="messsage"></textarea>
+          </div>
 
+          <div class="full-width">
            <label for="mailing-list"><input type="checkbox"
             id="mailing-list">Please add me to your mailing list</label>
-           
-            <label>Choose an email format:</label>
+          </div>
+
+          <div class="full-width">
+            <span>Choose an email format:</span>
             <input type="radio" id="html" name="format" value="html">
             <label for="html">HTML</label>
             <input type="radio" id="text" name="format" value="text">
             <label for="text">Text</label>
+          </div>
+      
 
-            <button type="submit" id="order-button">Submit</button>
+          <div class="full-width">
+            <button type="submit" id="order-button" class="submit-btn">Submit</button>
+          </div>
 
       </form>
     </main>

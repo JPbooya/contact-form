@@ -4,4 +4,18 @@ label {
 
 form {
   display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.full-width {
+  grid-column: 1 / -1;
+}
+
+#contact-form {
+  width: 70%;
+  margin: auto;
+}
+
+input[type="radio"] + label {
+  display: inline;
 }
