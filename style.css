@@ -1,21 +1,69 @@
+main {
+  background-color: rgb(192, 191, 191);
+  padding: 20px;
+}
+
+h1 {
+  background-color: white;
+  text-align: center;;
+}
+
 label {
   display: block;
+  font-weight: bold;
+  color: black;
 }
 
-form {
+span {
+  font-weight: bold;
+  color: black;
+}
+#contact-form {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
 }
 
-.full-width {
+.full-width{
   grid-column: 1 / -1;
 }
 
-#contact-form {
-  width: 70%;
-  margin: auto;
+.container {
+  border-radius: 10px;
+  background-color: white;
+  width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.container input, .container select, .container textarea {
+  border-radius: 2px;
+  border: 1px solid;
+  color: lightgrey;
+  padding: 5px;
 }
 
 input[type="radio"] + label {
   display: inline;
+}
+
+.full-width textarea {
+  width: 90%;
+}
+
+.meet-width select {
+  grid-column: 1 / 2 ;
+  width: 100%;
+  box-sizing: border-box;
+
+}
+
+.other-width input {
+  grid-column:  2 / 3;
+  width: 100%;
+}
+
+button {
+  background-color: green;
+  color: white;
 }
