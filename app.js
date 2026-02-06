@@ -4,6 +4,7 @@ const app = express();
 
 const PORT = 3000;
 
+
 // accessing through the main directory
 app.use(express.static(import.meta.dirname));
 
