@@ -71,3 +71,12 @@ button {
 footer {
   text-align: center;
 }
+
+.err {
+  color: red;
+  display: none;
+}
+
+#email-format {
+  display: none;
+}
