@@ -15,6 +15,7 @@ function myFunction() {
 
 form.addEventListener('submit', (event) => {
   event.preventDefault();
+  let isValid = true;
   console.log("form is submitted");
 
   const firstName = document.getElementById("fname").value;
@@ -47,7 +48,7 @@ form.addEventListener('submit', (event) => {
     document.getElementById("err-mailing").style.display = "inline";
     isValid = false;
   }
-  
+
   // checks if it has a value and does not pass the validation
   if (email.trim() && !regex.test(email)) {
     document.getElementById("err-mailing").style.display = "inline";
