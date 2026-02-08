@@ -1,4 +1,5 @@
 main {
+  
   background-color: rgb(192, 191, 191);
   padding: 20px;
 }
@@ -38,8 +39,8 @@ span {
 
 .container input, .container select, .container textarea {
   border-radius: 2px;
-  border: 1px solid;
-  color: lightgrey;
+  border: 1px solid lightgray;
+  color: black;
   padding: 5px;
 }
 
