@@ -13,6 +13,18 @@ function myFunction() {
     }
   }
 
+  /* checks if other option is selected from dropdown menu */
+function otherSelected() {
+  var otherChecked = document.getElementById("meet");
+  var otherUnchecked = document.getElementById("other-unchecked");
+
+  if (otherChecked.value === "other-meet") {
+    otherUnchecked.style.display = "block";
+  } else {
+    otherUnchecked.style.display = "none";
+  }
+}
+
 form.addEventListener('submit', (event) => {
   event.preventDefault();
   let isValid = true;
@@ -23,7 +35,7 @@ form.addEventListener('submit', (event) => {
   const meet = document.getElementById("meet").value
   const email = document.getElementById("ename").value;
   const mailingList = document.getElementById("mailing-list").checked;
-  const linkedln = document.getElementById("liname").value;
+  const linkedin = document.getElementById("liname").value;
   // regex 
   const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -56,8 +68,8 @@ form.addEventListener('submit', (event) => {
   }
 
   // checks if it has a value and if it does not start with https://linkedin.com/in/
-  if (linkedln.trim() && !linkedln.startsWith("https://linkedin.com/in/")) {
-    document.getElementById("err-linkedln").style.display = "inline";
+  if (linkedin.trim() && !linkedin.startsWith("https://linkedin.com/in/")) {
+    document.getElementById("err-linkedin").style.display = "inline";
     isValid = false;
   }
 

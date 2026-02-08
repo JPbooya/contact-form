@@ -42,7 +42,7 @@
 
           <!-- Linkedln -->
           <div>
-           <label for="liname">Linkedln URL<br><span class="err" id="err-linkedln"> *Must start with https://linkedin.com/in/* </span></label>
+           <label for="liname">Linkedln URL<br><span class="err" id="err-linkedin"> *Must start with https://linkedin.com/in/* </span></label>
            <input type="text" id="liname" name="liname">
           </div>
 
@@ -55,14 +55,15 @@
           <!-- Questionaires -->
           <div class="meet-width"> 
            <label for="me et">How did we meet?<br><span id="err-meet" class=" err"> *Please select an option* </span></label>
-           <select id="meet" name="meet">
+           <select id="meet" name="meet" onclick="otherSelected()">
             <option value="none">Please Select</option>
             <option value="group-meets">Group Meets</option>
             <option value="linkedln meet">Linkedln</option>
+            <option value="other-meet" id="option-meet">Other</option>
            </select>
           </div>
 
-          <div class="other-width">
+          <div class="other-width" id="other-unchecked" style="display: none">
            <label for="oname">Other (please specify)</label>
            <input type="text" id="oname" name="oname">
           </div>
