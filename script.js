@@ -73,4 +73,9 @@ form.addEventListener('submit', (event) => {
     isValid = false;
   }
 
+  if (isValid) {
+    console.log("Form submitted");
+    window.location.href = '/confirmation';
+  }
+
 });
