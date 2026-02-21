@@ -34,5 +34,5 @@ app.post('/confirmation', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Server is running at http://localhost:${PORT}`);
+  console.log(`Server is running at http://64.23.169.154:${PORT}`);
 });
