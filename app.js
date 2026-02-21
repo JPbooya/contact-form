@@ -21,6 +21,11 @@ app.get('/confirmation', (req, res) => {
   res.sendFile(`${import.meta.dirname}/confirmation.html`)
 });
 
+// admin route too display data
+app.get('/admin', (req,res) => {
+  res.json(contacts);
+});
+
 app.post('/confirmation', (req, res) => {
   const {fname, lname, jname, cname, liname, ename, meet, message} = req.body;
   contacts.push({fname, lname, jname, cname, liname, ename, meet, message});
