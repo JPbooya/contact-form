@@ -12,7 +12,7 @@
   <main>
 
       <div class="container">
-        <form id="contact-form" action="/confirmation.html" method="get">
+        <form id="contact-form" action="/confirmation" method="post">
 
           <h1 class="full-width">Contact Form</h1>
 
@@ -54,7 +54,7 @@
 
           <!-- Questionaires -->
           <div class="meet-width"> 
-           <label for="me et">How did we meet?<br><span id="err-meet" class=" err"> *Please select an option* </span></label>
+           <label for="meet">How did we meet?<br><span id="err-meet" class=" err"> *Please select an option* </span></label>
            <select id="meet" name="meet" onclick="otherSelected()">
             <option value="none">Please Select</option>
             <option value="group-meets">Group Meets</option>
@@ -70,7 +70,7 @@
            
           <div class="full-width">
            <label for="message">Message</label>
-           <textarea rows="8" id="message" name="messsage"></textarea>
+           <textarea rows="8" id="message" name="message"></textarea>
           </div>
 
           <div class="full-width">

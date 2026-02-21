@@ -3,7 +3,10 @@ import express from 'express';
 const app = express();
 
 const PORT = 3000;
-
+// contactcs array
+const contacts = [];
+// essential for req.body too parse data
+app.use(express.urlencoded({extended : true}));
 
 // accessing through the main directory
 app.use(express.static(import.meta.dirname));
@@ -13,10 +16,18 @@ app.get('/', (req, res) => {
   res.sendFile(`${import.meta.dirname}/index.html`);
 });
 
-app.listen(PORT, () => {
-  console.log(`Server is running at http://localhost:${PORT}`);
-});
 // confirmation route
 app.get('/confirmation', (req, res) => {
   res.sendFile(`${import.meta.dirname}/confirmation.html`)
+});
+
+app.post('/confirmation', (req, res) => {
+  const {fname, lname, jname, cname, liname, ename, meet, message} = req.body;
+  contacts.push({fname, lname, jname, cname, liname, ename, meet, message});
+  console.log(contacts);
+  res.sendFile(`${import.meta.dirname}/confirmation.html`);
+});
+
+app.listen(PORT, () => {
+  console.log(`Server is running at http://localhost:${PORT}`);
 });
