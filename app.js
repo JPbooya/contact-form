@@ -25,12 +25,12 @@ app.get('/confirmation', (req, res) => {
 
 // admin route too display data
 app.get('/admin', (req,res) => {
-  res.json(contacts);
+  res.render('admin', {contacts} );
 });
 
 app.post('/confirmation', (req, res) => {
   const {fname, lname, jname, cname, liname, ename, meet, message} = req.body;
-  contacts.push({fname, lname, jname, cname, liname, ename, meet, message});
+  contacts.push({fname, lname, jname, cname, liname, ename, meet, message, timestamp: new Date().toLocaleString()});
   console.log(contacts);
   res.render(`confirmation`, { fname, lname, jname, cname, liname, ename, meet, message});
 });
