@@ -21,12 +21,12 @@ app.get('/', (req, res) => {
 
 // contact route
 app.get('/contact', (req, res) => {
-  res.sendFile(`${import.meta.dirname}/index.html`)
+  res.sendFile(`${import.meta.dirname}/contacts.html`)
 });
 
 // confirmation route
 app.get('/confirmation', (req, res) => {
-  res.sendFile(`${import.meta.dirname}/index.html`)
+  res.sendFile(`${import.meta.dirname}/contacts.html`)
 });
 
 // admin route too display data
