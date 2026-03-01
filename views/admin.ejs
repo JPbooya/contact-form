@@ -1,0 +1,15 @@
+<% if (contacts.length === 0) { %>
+    <p>No Contacts</p>
+<% } else {%> 
+  <% contacts.forEach(contact => { %>
+    <p><%= contact.fname %></p>
+    <p><%= contact.lname %></p>
+    <p><%= contact.cname %></p>
+    <p><%= contact.ename %></p>
+    <p><%= contact.jname %></p>
+    <p><%= contact.liname %></p>
+    <p><%= contact.message %></p>
+    <p><%= contact.meet %></p>
+    <p><%= contact.timestamp %></p>
+    <% }) %>
+  <% } %>
