@@ -2,6 +2,7 @@ import express from 'express';
 
 const app = express();
 
+// essentail for ejs
 app.set('view engine', 'ejs');
 
 const PORT = 3010;
@@ -30,11 +31,8 @@ app.get('/admin', (req,res) => {
 
 
 app.post('/confirmation', (req, res) => {
-  console.log("post hit")
   const {fname, lname, jname, cname, liname, ename, meet, message} = req.body;
   contacts.push({fname, lname, jname, cname, liname, ename, meet, message, timestamp: new Date().toLocaleString()});
-  console.log(contacts);
-  console.log(fname)
   res.render(`confirmation`, { fname, lname, jname, cname, liname, ename, meet, message, timestamp: new Date().toLocaleString()});
 });
 
