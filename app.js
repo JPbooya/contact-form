@@ -11,7 +11,7 @@ const contacts = [];
 // essential for req.body too parse data
 app.use(express.urlencoded({extended : true}));
 
-// accessing through the main directory
+// serves statics files from the project directory
 app.use(express.static(import.meta.dirname));
 
 // main dir route
@@ -24,7 +24,7 @@ app.get('/contact', (req, res) => {
   res.sendFile(`${import.meta.dirname}/contacts.html`)
 });
 
-// confirmation route
+// confirmation fallback route
 app.get('/confirmation', (req, res) => {
   res.sendFile(`${import.meta.dirname}/contacts.html`)
 });
