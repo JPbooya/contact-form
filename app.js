@@ -16,7 +16,12 @@ app.use(express.static(import.meta.dirname));
 
 // main dir route
 app.get('/', (req, res) => {
-  res.sendFile(`${import.meta.dirname}/index.html`);
+  res.render('resume');
+});
+
+// contact route
+app.get('/contact', (req, res) => {
+  res.sendFile(`${import.meta.dirname}/index.html`)
 });
 
 // confirmation route
