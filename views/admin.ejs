@@ -1,4 +1,13 @@
-<% if (contacts.length === 0) { %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <%- include('partials/navbar') %>
+  <% if (contacts.length === 0) { %>
     <p>No Contacts</p>
 <% } else {%> 
   <% contacts.forEach(contact => { %>
@@ -13,3 +22,5 @@
     <p><%= contact.timestamp %></p>
     <% }) %>
   <% } %>
+</body>
+</html>
