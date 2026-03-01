@@ -2,6 +2,8 @@ import express from 'express';
 
 const app = express();
 
+app.set('view engine', ejs);
+
 const PORT = 3010;
 // contactcs array
 const contacts = [];
@@ -13,12 +15,12 @@ app.use(express.static(import.meta.dirname));
 
 // main dir route
 app.get('/', (req, res) => {
-  res.sendFile(`${import.meta.dirname}/index.html`);
+  res.render(`${import.meta.dirname}/index.html`);
 });
 
 // confirmation route
 app.get('/confirmation', (req, res) => {
-  res.sendFile(`${import.meta.dirname}/confirmation.html`)
+  res.render(`${import.meta.dirname}/confirmation.html`)
 });
 
 // admin route too display data
@@ -30,7 +32,7 @@ app.post('/confirmation', (req, res) => {
   const {fname, lname, jname, cname, liname, ename, meet, message} = req.body;
   contacts.push({fname, lname, jname, cname, liname, ename, meet, message});
   console.log(contacts);
-  res.sendFile(`${import.meta.dirname}/confirmation.html`);
+  res.render(`confirmation`, { fname, lname, jname, cname, liname, ename, meet, message});
 });
 
 app.listen(PORT, () => {
