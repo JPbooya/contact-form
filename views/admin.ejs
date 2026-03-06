@@ -4,23 +4,53 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+
+  <!-- Script -->
+  <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+  <script src="https://cdn.datatables.net/2.3.7/js/dataTables.js"></script>
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="https://cdn.datatables.net/2.3.7/css/dataTables.dataTables.css">
 </head>
 <body>
-  <%- include('partials/navbar') %>
-  <% if (contacts.length === 0) { %>
-    <p>No Contacts</p>
-<% } else {%> 
+   <%- include('partials/navbar') %>
+  <table id="contacts-table" class="display">
+  <thead>
+    <tr>
+      <th>Firstname</th>
+      <th>Lastname</th>
+      <th>Jobname</th>
+      <th>Company</th>
+      <th>Linkedin</th>
+      <th>Email</th>
+      <th>Met</th>
+      <th>message</th>
+      <th>Timestamp</th>
+    </tr>
+  </thead>
+ 
+<tbody>
   <% contacts.forEach(contact => { %>
-    <p><%= contact.fname %></p>
-    <p><%= contact.lname %></p>
-    <p><%= contact.cname %></p>
-    <p><%= contact.ename %></p>
-    <p><%= contact.jname %></p>
-    <p><%= contact.liname %></p>
-    <p><%= contact.message %></p>
-    <p><%= contact.meet %></p>
-    <p><%= contact.timestamp %></p>
-    <% }) %>
-  <% } %>
+    <tr>
+     <td><%= contact.fname %></td>
+      <td><%= contact.lname %></td>
+      <td><%= contact.jname %></td>
+      <td><%= contact.cname %></td>
+      <td><%= contact.liname %></td>
+      <td><%= contact.ename %></td>
+      <td><%= contact.meet %></td>
+      <td><%= contact.message %></td>
+      <td><%= contact.timestamp %></td>
+    </tr>
+  <% }) %>
+  </tbody>
+</table>
+
+<script>
+    $(document).ready(function () {
+      new DataTable('#contacts-table');
+    });
+  </script>
+
 </body>
 </html>
