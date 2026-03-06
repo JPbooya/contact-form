@@ -1,4 +1,20 @@
 import express from 'express';
+import mysql2 from 'mysql2';
+import dotenv from 'dotenv';
+
+// load enviroment variables from .env
+dotenv.config()
+console.log(process.env.DB_HOST);
+
+// create a pool bucket of database connections
+const pool = mysql2.createPool({
+  host: process.env.DB_HOST,
+  user:process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_DATABASE,
+  port: process.env.DB_PORT
+}).promise();
+
 
 const app = express();
 
@@ -6,8 +22,7 @@ const app = express();
 app.set('view engine', 'ejs');
 
 const PORT = 3010;
-// contactcs array
-const contacts = [];
+
 // essential for req.body too parse data
 app.use(express.urlencoded({extended : true}));
 
@@ -34,11 +49,15 @@ app.get('/admin', (req,res) => {
   res.render('admin', {contacts} );
 });
 
-
-app.post('/confirmation', (req, res) => {
-  const {fname, lname, jname, cname, liname, ename, meet, message} = req.body;
-  contacts.push({fname, lname, jname, cname, liname, ename, meet, message, timestamp: new Date().toLocaleString()});
-  res.render(`confirmation`, { fname, lname, jname, cname, liname, ename, meet, message, timestamp: new Date().toLocaleString()});
+// async and await function to retrieve data and send back.
+app.post('/confirmation', async (req, res) => { 
+   const {fname, lname, jname, cname, liname, ename, meet, message} = req.body;
+  try {
+    await pool.query('INSERT INTO contacts (fname, lname, jname, cname, liname, ename, meet, message) VALUES (?, ?, ?, ?, ?, ?, ?, ?)', [fname, lname, jname, cname, liname, ename, meet, message]);
+    res.render('confirmation', { fname, lname, jname, cname, liname, ename, meet, message, timestamp: new Date().toLocaleString()});
+  } catch (err) {
+    console.error('Database error: ', err);
+  }
 });
 
 app.listen(PORT, () => {
