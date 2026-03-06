@@ -44,9 +44,14 @@ app.get('/confirmation', (req, res) => {
   res.sendFile(`${import.meta.dirname}/contacts.html`)
 });
 
-// admin route too display data
-app.get('/admin', (req,res) => {
-  res.render('admin', {contacts} );
+// admin route too retreive and display all contacts from database.
+app.get('/admin', async (req,res) => {
+  try {
+    const contacts = await pool.query('SELECT * FROM contacts')
+    res.render('admin', { contacts : contacts [0]});
+  } catch (err) {
+    console.error('Database error: ', err);
+  }
 });
 
 // async and await function to retrieve data and send back.
