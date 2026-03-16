@@ -64,3 +64,12 @@ img {
 ul li::marker {
   color: var(--primary-color);
 }
+
+.project-screenshot {
+  border-radius: 0;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+
