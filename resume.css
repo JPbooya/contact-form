@@ -22,7 +22,7 @@ body {
 }
 
 a:hover, a:focus{
-  color: var(--primary-color);
+  color: var(rgb(54, 54, 229));
   text-decoration:none;
 }
 
