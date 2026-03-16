@@ -25,8 +25,13 @@ if (!validMeet.includes(data.meet)) {
     errors.push("Please select an option");
   }
 
+if (data.mailingList === 'on' && !['html', 'text'].includes(data.format)) {
+  errors.push("Please select an email format");
+}
+
   return {
     isValid: errors.length === 0,
     errors
   };
 }
+

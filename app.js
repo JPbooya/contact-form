@@ -50,10 +50,6 @@ app.get('/portfolio', (req, res) => {
   res.render('portfolio');
 });
 
-
-
-
-
 // admin route too retreive and display all contacts from database.
 app.get('/admin', async (req,res) => {
   try {
@@ -66,10 +62,10 @@ app.get('/admin', async (req,res) => {
 
 // async and await function to retrieve data and send back.
 app.post('/confirmation', async (req, res) => { 
-   const {fname, lname, jname, cname, liname, ename, meet, message} = req.body;
+   const {fname, lname, jname, cname, liname, ename, meet, message, mailingList, format} = req.body;
 
   // Calls validate form for exisiting fname, lname, meet, before saving to DB.
-  const valid = validateForm({fname, lname, meet});
+  const valid = validateForm({fname, lname, meet, mailingList, format});
   if (!valid.isValid) {
     res.render('contact', {errors: valid.errors});
     return;
@@ -78,7 +74,7 @@ app.post('/confirmation', async (req, res) => {
   try {
     await pool.query
     ('INSERT INTO contacts (fname, lname, jname, cname, liname, ename, meet, message) VALUES (?, ?, ?, ?, ?, ?, ?, ?)', 
-      [fname, lname, jname, cname, liname, ename, meet, message]);
+      [fname, lname, jname, cname, liname, ename, meet, message,]);
     res.render('confirmation', 
       { fname, lname, jname, cname, liname, ename, meet, message, timestamp: new Date().toLocaleString()});
   } catch (err) {
