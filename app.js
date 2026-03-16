@@ -1,6 +1,7 @@
 import express from 'express';
 import mysql2 from 'mysql2';
 import dotenv from 'dotenv';
+import { validateForm } from './validation.js';
 
 // load enviroment variables from .env
 dotenv.config()
@@ -36,18 +37,21 @@ app.get('/', (req, res) => {
 
 // contact route
 app.get('/contact', (req, res) => {
-  res.sendFile(`${import.meta.dirname}/contacts.html`)
+  res.render('contact')
 });
 
 // confirmation fallback route
 app.get('/confirmation', (req, res) => {
-  res.sendFile(`${import.meta.dirname}/contacts.html`)
+  res.render('contact')
 });
 
 // portfolio route
 app.get('/portfolio', (req, res) => {
   res.render('portfolio');
 });
+
+
+
 
 
 // admin route too retreive and display all contacts from database.
@@ -63,6 +67,14 @@ app.get('/admin', async (req,res) => {
 // async and await function to retrieve data and send back.
 app.post('/confirmation', async (req, res) => { 
    const {fname, lname, jname, cname, liname, ename, meet, message} = req.body;
+
+  // Calls validate form for exisiting fname, lname, meet, before saving to DB.
+  const valid = validateForm({fname, lname, meet});
+  if (!valid.isValid) {
+    res.render('contact', {errors: valid.errors});
+    return;
+  }
+
   try {
     await pool.query
     ('INSERT INTO contacts (fname, lname, jname, cname, liname, ename, meet, message) VALUES (?, ?, ?, ?, ?, ?, ?, ?)', 
