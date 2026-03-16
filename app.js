@@ -44,6 +44,12 @@ app.get('/confirmation', (req, res) => {
   res.sendFile(`${import.meta.dirname}/contacts.html`)
 });
 
+// portfolio route
+app.get('/portfolio', (req, res) => {
+  res.render('portfolio');
+});
+
+
 // admin route too retreive and display all contacts from database.
 app.get('/admin', async (req,res) => {
   try {
@@ -58,8 +64,11 @@ app.get('/admin', async (req,res) => {
 app.post('/confirmation', async (req, res) => { 
    const {fname, lname, jname, cname, liname, ename, meet, message} = req.body;
   try {
-    await pool.query('INSERT INTO contacts (fname, lname, jname, cname, liname, ename, meet, message) VALUES (?, ?, ?, ?, ?, ?, ?, ?)', [fname, lname, jname, cname, liname, ename, meet, message]);
-    res.render('confirmation', { fname, lname, jname, cname, liname, ename, meet, message, timestamp: new Date().toLocaleString()});
+    await pool.query
+    ('INSERT INTO contacts (fname, lname, jname, cname, liname, ename, meet, message) VALUES (?, ?, ?, ?, ?, ?, ?, ?)', 
+      [fname, lname, jname, cname, liname, ename, meet, message]);
+    res.render('confirmation', 
+      { fname, lname, jname, cname, liname, ename, meet, message, timestamp: new Date().toLocaleString()});
   } catch (err) {
     console.error('Database error: ', err);
   }
