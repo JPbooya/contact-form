@@ -37,6 +37,25 @@ head {
   width: 100%;
 }
 
+nav {
+  width: 100%;
+  background-color: var(--primary-color);
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  gap: 15px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-style: normal;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
 @media (max-width: 768px) {
   body {
     max-width: 100%;
